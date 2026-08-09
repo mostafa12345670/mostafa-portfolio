@@ -1,1103 +1,2370 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl" id="html-root">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>mostafa mansour - Portfolio</title>
-    <meta name="description" content="mostafa mansour - AI & Computer Science Portfolio">
-    <meta name="author" content="mostafa mansour">
+<!-- SEO -->
+<title>مصطفى منصور - الذكاء الاصطناعي وعلوم الحاسب</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+<meta name="description" content="مصطفى منصور، طالب ذكاء اصطناعي وعلوم حاسب، مهتم بالبرمجة والذكاء الاصطناعي والأمن السيبراني وتطوير الويب.">
 
-    <style>
-        :root {
-            --bg-dark: #08090c;
-            --card-bg: #11141b;
-            --accent-neon: #00ff66;
-            --accent-cyan: #00e5ff;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #1f2937;
-            --font-mono: 'Fira Code', monospace;
-            --font-sans: 'Space Grotesk', sans-serif;
-        }
+<meta name="keywords" content="مصطفى منصور, ذكاء اصطناعي, علوم الحاسب, برمجة, C++, Python, الأمن السيبراني, تطوير الويب">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: var(--font-sans);
-        }
+<meta name="author" content="مصطفى منصور">
 
-        html {
-            scroll-behavior: smooth;
-        }
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow">
 
-        body {
-            background: var(--bg-dark);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.5;
-        }
+<!-- Canonical -->
+<link rel="canonical" href="https://mostafa12345670.github.io/mostafa/">
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.1rem 2.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(8, 9, 12, 0.88);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-        }
+<!-- Open Graph -->
+<meta property="og:title" content="مصطفى منصور - الذكاء الاصطناعي وعلوم الحاسب">
+<meta property="og:description" content="مصطفى منصور، طالب ذكاء اصطناعي وعلوم حاسب ومهتم بالبرمجة والذكاء الاصطناعي.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_EG">
+<meta property="og:url" content="https://mostafa12345670.github.io/mostafa/">
+<meta property="og:image" content="https://mostafa12345670.github.io/mostafa/IMG_20260525_04084392.jpeg">
 
-        .nav-logo {
-            font-family: var(--font-mono);
-            font-weight: 700;
-            color: var(--accent-neon);
-            letter-spacing: 1px;
-            font-size: 1.05rem;
-        }
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="مصطفى منصور - الذكاء الاصطناعي وعلوم الحاسب">
+<meta name="twitter:description" content="مصطفى منصور، طالب ذكاء اصطناعي وعلوم حاسب.">
+<meta name="twitter:image" content="https://mostafa12345670.github.io/mostafa/IMG_20260525_04084392.jpeg">
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Space+Grotesk:wght@500;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        .age {
-            font-family: var(--font-mono);
-            color: var(--accent-neon);
-            font-size: 0.8rem;
-        }
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .language-switcher {
-            display: flex;
-            gap: 5px;
-        }
+<!-- Matter.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 
-        .language-switcher button {
-            border: 1px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-muted);
-            padding: 6px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            transition: 0.3s;
-        }
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-        .language-switcher button:hover,
-        .language-switcher button.active {
-            color: #000;
-            background: var(--accent-neon);
-            border-color: var(--accent-neon);
-        }
+<style>
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 2rem;
-        }
+:root{
+    --bg:#08090c;
+    --card:#11141b;
+    --green:#00ff66;
+    --cyan:#00e5ff;
+    --white:#f3f4f6;
+    --muted:#9ca3af;
+    --border:#1f2937;
+    --mono:'Fira Code',monospace;
+    --sans:'Space Grotesk','Cairo',sans-serif;
+}
 
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-top: 6rem;
-            text-align: center;
-        }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:var(--sans);
+}
 
-        .profile-frame {
-            position: relative;
-            width: 250px;
-            height: 360px;
-            margin-bottom: 1.8rem;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid var(--border-color);
-            background: var(--card-bg);
-            box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
-            transition: 0.5s;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .profile-frame:hover {
-            border-color: var(--accent-neon);
-            box-shadow: 0 0 50px rgba(0, 255, 102, 0.4);
-            transform: translateY(-5px) scale(1.02);
-        }
+body{
+    background:var(--bg);
+    color:var(--white);
+    overflow-x:hidden;
+    line-height:1.5;
+}
 
-        .profile-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            filter: grayscale(35%) contrast(110%);
-            transition: 0.5s;
-        }
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(
+            circle at var(--mx,20%) var(--my,20%),
+            rgba(0,255,102,.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(0,229,255,.07),
+            transparent 25%
+        );
+    z-index:-2;
+}
 
-        .profile-frame:hover img {
-            filter: grayscale(0%) contrast(105%);
-        }
+#particles-bg{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
 
-        .profile-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                transparent 60%,
-                var(--bg-dark) 100%
-            );
-            pointer-events: none;
-        }
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:1rem 2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    background:rgba(8,9,12,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
 
-        .hero-subtitle {
-            font-family: var(--font-mono);
-            color: var(--accent-cyan);
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            margin-bottom: 0.8rem;
-        }
+.nav-logo{
+    font-family:var(--mono);
+    font-weight:700;
+    color:var(--green);
+    letter-spacing:1px;
+}
 
-        .hero-scramble {
-            font-size: 4rem;
-            font-weight: 800;
-            letter-spacing: -2px;
-            color: #fff;
-            min-height: 90px;
-        }
+.lang-btn{
+    background:transparent;
+    border:1px solid var(--green);
+    color:var(--green);
+    padding:.45rem 1rem;
+    border-radius:20px;
+    cursor:pointer;
+    font-family:var(--mono);
+    font-weight:600;
+    transition:.25s;
+}
 
-        .specialization {
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-            margin-top: 5px;
-            font-size: 0.95rem;
-        }
+.lang-btn:hover{
+    background:var(--green);
+    color:#000;
+    box-shadow:0 0 20px rgba(0,255,102,.35);
+}
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(200px, 300px));
-            justify-content: center;
-            gap: 1.5rem;
-            width: 100%;
-            margin-top: 2.5rem;
-        }
+.lang-btn:active{
+    transform:scale(.9);
+}
 
-        .stat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 1.7rem;
-            border-radius: 12px;
-            text-align: left;
-            transition: 0.3s;
-        }
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 2rem;
+}
 
-        .stat-card:hover {
-            border-color: var(--accent-neon);
-            transform: translateY(-4px);
-        }
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding-top:6rem;
+}
 
-        .stat-num {
-            font-size: 3rem;
-            font-weight: 800;
-            font-family: var(--font-mono);
-            color: var(--accent-neon);
-        }
+.subtitle{
+    color:var(--cyan);
+    font-family:var(--mono);
+    letter-spacing:2px;
+    margin-bottom:.8rem;
+    animation:fadeDown 1s ease;
+}
 
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-family: var(--font-mono);
-        }
+.name{
+    font-size:4rem;
+    font-weight:800;
+    min-height:80px;
+    text-transform:uppercase;
+    text-shadow:0 0 25px rgba(0,255,102,.12);
+    animation:nameGlow 3s infinite alternate;
+}
 
-        .skills-section,
-        .physics-section,
-        .contact-section {
-            padding: 5rem 0;
-            border-top: 1px solid var(--border-color);
-        }
+@keyframes nameGlow{
+    from{
+        text-shadow:0 0 10px rgba(0,255,102,.1);
+    }
+    to{
+        text-shadow:
+            0 0 20px rgba(0,255,102,.35),
+            0 0 45px rgba(0,229,255,.12);
+    }
+}
 
-        .section-title {
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+/* ROBOT */
+.robot{
+    width:100%;
+    height:280px;
+    margin:1rem 0;
+    touch-action:none;
+    position:relative;
+}
 
-        .skill {
-            padding: 10px 16px;
-            border-radius: 30px;
-            border: 1px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-main);
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
+#robot-canvas{
+    width:100%;
+    height:100%;
+    display:block;
+    touch-action:none;
+}
 
-        .skill:hover {
-            border-color: var(--accent-neon);
-            color: var(--accent-neon);
-            transform: translateY(-3px);
-        }
+/* STATS */
+.stats{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1.5rem;
+    margin-top:1rem;
+}
 
-        #physics-container {
-            width: 100%;
-            height: 420px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-        }
+.stat{
+    position:relative;
+    overflow:hidden;
+    background:rgba(17,20,27,.8);
+    border:1px solid var(--border);
+    padding:1.8rem;
+    border-radius:15px;
+    text-align:left;
+    transition:.35s;
+    cursor:pointer;
+}
 
-        #physics-container canvas {
-            display: block;
-        }
+.stat::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:var(--green);
+    filter:blur(50px);
+    opacity:0;
+    right:-50px;
+    top:-50px;
+    transition:.4s;
+}
 
-        .physics-instruction {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            pointer-events: none;
-            z-index: 10;
-        }
+.stat:hover,
+.stat.active{
+    border-color:var(--green);
+    transform:translateY(-7px) scale(1.015);
+    box-shadow:
+        0 0 25px rgba(0,255,102,.15),
+        inset 0 0 20px rgba(0,255,102,.03);
+}
 
-        .contact-section {
-            text-align: center;
-        }
+.stat:hover::before,
+.stat.active::before{
+    opacity:.18;
+}
 
-        .contact-title {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-        }
+html[dir="rtl"] .stat{
+    text-align:right;
+}
 
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+.number{
+    font-size:3.3rem;
+    color:var(--green);
+    font-family:var(--mono);
+    font-weight:800;
+}
 
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 1rem 1.8rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
+.label{
+    color:var(--muted);
+    font-family:var(--mono);
+}
 
-        .email-btn {
-            background: var(--accent-neon);
-            color: #000;
-        }
+/* SECTIONS */
+section{
+    border-top:1px solid var(--border);
+}
 
-        .whatsapp-btn {
-            background: #25D366;
-            color: #000;
-        }
+.skills-section{
+    padding:5rem 0;
+}
 
-        .contact-btn:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.35);
-        }
+.section-title{
+    font-size:2.5rem;
+    font-weight:800;
+    margin-bottom:1.5rem;
+}
 
-        html[dir="rtl"] .stat-card {
-            text-align: right;
-        }
+/* PHYSICS */
+#physics-container{
+    width:100%;
+    height:430px;
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,255,102,.05),
+            transparent 55%
+        ),
+        var(--card);
+    border:1px solid var(--border);
+    touch-action:none;
+    box-shadow:inset 0 0 40px rgba(0,255,102,.02);
+}
 
-        html[dir="rtl"] .physics-instruction {
-            left: auto;
-            right: 20px;
-        }
+#physics-container canvas{
+    touch-action:none;
+}
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-            }
+.physics-help{
+    position:absolute;
+    top:15px;
+    left:20px;
+    color:var(--muted);
+    font-family:var(--mono);
+    font-size:.8rem;
+    z-index:10;
+    pointer-events:none;
+}
 
-            .nav-logo {
-                font-size: 0.8rem;
-            }
+html[dir="rtl"] .physics-help{
+    left:auto;
+    right:20px;
+}
 
-            .nav-right {
-                gap: 8px;
-            }
+/* POPUP */
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.68);
+    backdrop-filter:blur(6px);
+    z-index:4999;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+}
 
-            .age {
-                display: none;
-            }
+.popup-overlay.show{
+    opacity:1;
+    pointer-events:auto;
+}
 
-            .container {
-                padding: 0 1rem;
-            }
+.skill-popup{
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) scale(.7) rotate(-3deg);
+    width:min(90%,420px);
+    padding:2rem;
+    background:rgba(17,20,27,.97);
+    border:1px solid var(--green);
+    border-radius:22px;
+    text-align:center;
+    z-index:5000;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s cubic-bezier(.2,.8,.2,1);
+    box-shadow:
+        0 0 25px rgba(0,255,102,.25),
+        0 0 80px rgba(0,229,255,.08);
+}
 
-            .profile-frame {
-                width: 210px;
-                height: 300px;
-            }
+.skill-popup.show{
+    opacity:1;
+    pointer-events:auto;
+    transform:translate(-50%,-50%) scale(1) rotate(0);
+}
 
-            .hero-scramble {
-                font-size: 2.3rem;
-                min-height: 55px;
-            }
+.skill-popup-icon{
+    font-size:3rem;
+    color:var(--green);
+    margin-bottom:1rem;
+    animation:iconPulse 1.5s infinite;
+}
 
-            .hero-subtitle {
-                font-size: 0.68rem;
-                letter-spacing: 1.5px;
-            }
+@keyframes iconPulse{
+    0%,100%{
+        transform:scale(1);
+        filter:drop-shadow(0 0 4px var(--green));
+    }
+    50%{
+        transform:scale(1.12);
+        filter:drop-shadow(0 0 18px var(--green));
+    }
+}
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+.skill-popup h3{
+    font-size:1.7rem;
+    margin-bottom:.6rem;
+}
 
-            .section-title {
-                font-size: 1.8rem;
-            }
+.skill-popup p{
+    color:var(--muted);
+}
 
-            #physics-container {
-                height: 360px;
-            }
+.skill-close{
+    margin-top:1.2rem;
+    padding:.65rem 1.4rem;
+    border:1px solid var(--green);
+    border-radius:20px;
+    background:transparent;
+    color:var(--green);
+    cursor:pointer;
+    font-weight:600;
+    transition:.25s;
+}
 
-            .contact-title {
-                font-size: 2rem;
-            }
+.skill-close:hover{
+    background:var(--green);
+    color:#000;
+    box-shadow:0 0 20px rgba(0,255,102,.3);
+}
 
-            .contact-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
+/* PROFILE */
+.profile-section{
+    padding:5rem 0 2rem;
+    text-align:center;
+}
 
-            .contact-btn {
-                justify-content: center;
-            }
-        }
-    </style>
+.profile{
+    width:250px;
+    height:330px;
+    margin:auto;
+    border-radius:20px;
+    overflow:hidden;
+    border:2px solid var(--green);
+    box-shadow:0 0 35px rgba(0,255,102,.25);
+    transition:.5s;
+    position:relative;
+    cursor:pointer;
+}
+
+.profile::after{
+    content:"";
+    position:absolute;
+    inset:-100%;
+    background:
+        linear-gradient(
+            120deg,
+            transparent 40%,
+            rgba(255,255,255,.18) 50%,
+            transparent 60%
+        );
+    transform:translateX(-50%) rotate(15deg);
+    transition:.7s;
+}
+
+.profile:hover::after,
+.profile.active::after{
+    transform:translateX(100%) rotate(15deg);
+}
+
+.profile:hover,
+.profile.active{
+    transform:translateY(-8px) rotate(.5deg) scale(1.02);
+    box-shadow:
+        0 0 35px rgba(0,255,102,.35),
+        0 0 80px rgba(0,255,102,.12);
+}
+
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.caption{
+    margin-top:1rem;
+    color:var(--green);
+    font-family:var(--mono);
+}
+
+/* CONTACT */
+.contact{
+    padding:4rem 0 6rem;
+    text-align:center;
+}
+
+.contact h2{
+    font-size:2.5rem;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    flex-wrap:wrap;
+    margin-top:2rem;
+}
+
+.contact-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:1rem 1.7rem;
+    border-radius:50px;
+    text-decoration:none;
+    color:var(--white);
+    background:var(--card);
+    border:1px solid var(--border);
+    transition:.3s;
+    font-weight:700;
+}
+
+.contact-btn:hover,
+.contact-btn:active{
+    transform:translateY(-4px) scale(1.04);
+    border-color:var(--green);
+    background:var(--green);
+    color:#000;
+    box-shadow:0 0 25px rgba(0,255,102,.4);
+}
+
+.whatsapp{
+    border-color:#25D366;
+    color:#25D366;
+}
+
+.whatsapp:hover,
+.whatsapp:active{
+    background:#25D366;
+    border-color:#25D366;
+    color:#000;
+}
+
+/* PARTICLES & RIPPLE */
+.particle{
+    position:fixed;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    pointer-events:none;
+    background:var(--green);
+    z-index:6000;
+    animation:particleMove .7s ease-out forwards;
+    box-shadow:0 0 10px var(--green);
+}
+
+@keyframes particleMove{
+    from{
+        opacity:1;
+        transform:translate(0,0) scale(1);
+    }
+    to{
+        opacity:0;
+        transform:translate(var(--dx),var(--dy)) scale(0);
+    }
+}
+
+.ripple{
+    position:fixed;
+    width:20px;
+    height:20px;
+    border:2px solid var(--green);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:6001;
+    animation:ripple .6s ease-out forwards;
+}
+
+@keyframes ripple{
+    from{
+        opacity:.9;
+        transform:translate(-50%,-50%) scale(.2);
+    }
+    to{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(8);
+    }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    nav{
+        padding:1rem;
+    }
+
+    .container{
+        padding:0 1rem;
+    }
+
+    .name{
+        font-size:2.3rem;
+    }
+
+    .subtitle{
+        font-size:.78rem;
+    }
+
+    .robot{
+        height:220px;
+    }
+
+    .stats{
+        gap:.8rem;
+    }
+
+    .stat{
+        padding:1.2rem;
+    }
+
+    .number{
+        font-size:2.5rem;
+    }
+
+    #physics-container{
+        height:400px;
+    }
+
+    .section-title{
+        font-size:2rem;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .contact-btn{
+        justify-content:center;
+    }
+
+    .skill-popup{
+        padding:1.5rem;
+    }
+}
+
+@media(max-width:480px){
+
+    .name{
+        font-size:1.8rem;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .profile{
+        width:220px;
+        height:290px;
+    }
+
+    #physics-container{
+        height:360px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <nav>
-        <div class="nav-logo">mostafa mansour</div>
+<canvas id="particles-bg"></canvas>
 
-        <div class="nav-right">
-            <div class="age">[ 19 Y/O ]</div>
+<!-- NAV -->
+<nav>
+    <div class="nav-logo">MOSTAFA MANSOUR</div>
 
-            <div class="language-switcher">
-                <button id="enBtn" class="active" onclick="setLanguage('en')">EN</button>
-                <button id="arBtn" onclick="setLanguage('ar')">AR</button>
+    <button
+        class="lang-btn"
+        id="lang-toggle"
+        type="button"
+        onclick="toggleLanguage()"
+    >
+        English EN
+    </button>
+</nav>
+
+<div class="container">
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="subtitle" id="title-text">
+        // الذكاء الاصطناعي وعلوم الحاسب
+    </div>
+
+    <div class="name" id="scramble-text">
+        مصطفى منصور
+    </div>
+
+    <div class="robot">
+        <canvas id="robot-canvas"></canvas>
+    </div>
+
+    <div class="stats">
+
+        <div class="stat" onclick="cardEffect(this)">
+            <div class="number">19</div>
+            <div class="label" id="age-label">
+                العمر (سنة)
             </div>
         </div>
-    </nav>
 
-    <div class="container">
-
-        <section class="hero-section">
-
-            <div class="profile-frame">
-                <img
-                    src="IMG_20260525_04084392.jpeg"
-                    alt="mostafa mansour"
-                    onerror="
-                        this.onerror=null;
-                        this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=500&h=700';
-                    "
-                >
-                <div class="profile-overlay"></div>
+        <div class="stat" onclick="cardEffect(this)">
+            <div class="number">5</div>
+            <div class="label" id="projects-label">
+                مشاريع منجزة
             </div>
-
-            <div
-                class="hero-subtitle"
-                data-en="// AI & COMPUTER SCIENCE"
-                data-ar="// الذكاء الاصطناعي وعلوم الحاسب"
-            >
-                // AI & COMPUTER SCIENCE
-            </div>
-
-            <div class="hero-scramble" id="scramble-text">
-                mostafa mansour
-            </div>
-
-            <div
-                class="specialization"
-                data-en="AI & Computer Science"
-                data-ar="الذكاء الاصطناعي وعلوم الحاسب"
-            >
-                AI & Computer Science
-            </div>
-
-            <div class="stats-grid">
-
-                <div class="stat-card">
-                    <div class="stat-num">19</div>
-                    <div
-                        class="stat-label"
-                        data-en="Years Old"
-                        data-ar="سنة"
-                    >
-                        Years Old
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-num">5</div>
-                    <div
-                        class="stat-label"
-                        data-en="Projects Built"
-                        data-ar="مشاريع"
-                    >
-                        Projects Built
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="skills-section">
-
-            <div
-                class="section-title"
-                data-en="SKILLS"
-                data-ar="المهارات"
-            >
-                SKILLS
-            </div>
-
-            <div class="skills-grid">
-                <span class="skill">C++</span>
-                <span class="skill">C#</span>
-                <span class="skill">Python</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">HTML</span>
-                <span class="skill">CSS</span>
-                <span class="skill">SQL</span>
-                <span class="skill">Front-End</span>
-                <span class="skill">Back-End</span>
-                <span class="skill">Full-Stack</span>
-                <span class="skill">AI</span>
-                <span class="skill">Cybersecurity</span>
-                <span class="skill">Arduino</span>
-                <span class="skill">IoT</span>
-                <span class="skill">Embedded C++</span>
-            </div>
-
-        </section>
-
-        <section class="physics-section">
-
-            <div
-                class="section-title"
-                data-en="TECH STACK"
-                data-ar="التقنيات"
-            >
-                TECH STACK
-            </div>
-
-            <div id="physics-container">
-
-                <div
-                    class="physics-instruction"
-                    data-en="> DRAG & THROW THE TAGS"
-                    data-ar="> اسحب العلامات وحركها"
-                >
-                    &gt; DRAG & THROW THE TAGS
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="contact-section">
-
-            <h2
-                class="contact-title"
-                data-en="LET'S CONNECT"
-                data-ar="تواصل معي"
-            >
-                LET'S CONNECT
-            </h2>
-
-            <div class="contact-buttons">
-
-                <a
-                    href="mailto:am0374979@gmail.com"
-                    class="contact-btn email-btn"
-                >
-                    <i class="fa-solid fa-envelope"></i>
-
-                    <span
-                        data-en="Email Me"
-                        data-ar="راسلني بالبريد"
-                    >
-                        Email Me
-                    </span>
-                </a>
-
-                <a
-                    href="https://wa.me/201119858862"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-btn whatsapp-btn"
-                >
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    <span
-                        data-en="WhatsApp Me"
-                        data-ar="تواصل معي على واتساب"
-                    >
-                        WhatsApp Me
-                    </span>
-                </a>
-
-            </div>
-
-        </section>
+        </div>
 
     </div>
 
-    <script>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
 
-        function setLanguage(lang) {
+    <div class="section-title" id="skills-title">
+        المهارات والتقنيات
+    </div>
+
+    <div id="physics-container">
+
+        <div class="physics-help" id="physics-help">
+            &gt; المس أو اسحب المهارات
+        </div>
+
+    </div>
 
-            const html = document.documentElement;
+</section>
+
+<!-- PROFILE -->
+<section class="profile-section">
+
+    <div
+        class="profile"
+        id="profile-card"
+        onclick="profileEffect(event)"
+    >
 
-            if (lang === 'ar') {
+        <img
+            src="IMG_20260525_04084392.jpeg"
+            alt="صورة مصطفى منصور - طالب ذكاء اصطناعي وعلوم حاسب"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='https://via.placeholder.com/250x330/11141b/00ff66?text=MOSTAFA';"
+        >
+
+    </div>
+
+    <h3 class="caption">
+        MOSTAFA MANSOUR
+    </h3>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+
+    <h2 id="contact-title">
+        تواصل معي
+    </h2>
+
+    <div class="buttons">
+
+        <a
+            href="mailto:Am0374979@gmail.com"
+            class="contact-btn"
+            id="email-btn"
+        >
+            <i class="fa-solid fa-envelope"></i>
+            Am0374979@gmail.com
+        </a>
+
+        <a
+            href="https://wa.me/201119858862"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn whatsapp"
+            id="whatsapp-btn"
+        >
+            <i class="fa-brands fa-whatsapp"></i>
+            واتساب
+        </a>
+
+    </div>
+
+</section>
+
+</div>
+
+<!-- POPUP -->
+<div
+    class="popup-overlay"
+    id="popup-overlay"
+    onclick="closeSkillPopup()"
+></div>
+
+<div class="skill-popup" id="skill-popup">
+
+    <div class="skill-popup-icon">
+        <i
+            id="skill-icon"
+            class="fa-solid fa-code"
+        ></i>
+    </div>
+
+    <h3 id="popup-title">
+        Python
+    </h3>
+
+    <p id="popup-description">
+        برمجة بايثون وتطبيقات الذكاء الاصطناعي
+    </p>
+
+    <button
+        class="skill-close"
+        id="close-btn"
+        type="button"
+        onclick="closeSkillPopup()"
+    >
+        إغلاق
+    </button>
 
-                html.lang = 'ar';
-                html.dir = 'rtl';
+</div>
 
-                document
-                    .getElementById('arBtn')
-                    .classList.add('active');
+<script>
 
-                document
-                    .getElementById('enBtn')
-                    .classList.remove('active');
+/* =========================
+   LANGUAGE
+========================= */
 
-            } else {
+let currentLang =
+    localStorage.getItem("preferredLanguage") || "ar";
 
-                html.lang = 'en';
-                html.dir = 'ltr';
+const translations = {
 
-                document
-                    .getElementById('enBtn')
-                    .classList.add('active');
+    ar:{
+        button:"English EN",
+        title:"// الذكاء الاصطناعي وعلوم الحاسب",
+        age:"العمر (سنة)",
+        projects:"مشاريع منجزة",
+        skills:"المهارات والتقنيات",
+        help:"> المس أو اسحب المهارات",
+        contact:"تواصل معي",
+        email:"Am0374979@gmail.com",
+        whatsapp:"واتساب",
+        name:"مصطفى منصور",
+        close:"إغلاق"
+    },
 
-                document
-                    .getElementById('arBtn')
-                    .classList.remove('active');
-            }
+    en:{
+        button:"العربية AR",
+        title:"// AI & COMPUTER SCIENCE",
+        age:"Years Old",
+        projects:"Projects Built",
+        skills:"SKILLS & TECHNOLOGIES",
+        help:"> TOUCH / DRAG THE SKILLS",
+        contact:"GET IN TOUCH",
+        email:"Am0374979@gmail.com",
+        whatsapp:"WhatsApp",
+        name:"MOSTAFA MANSOUR",
+        close:"CLOSE"
+    }
 
-            document
-                .querySelectorAll('[data-en]')
-                .forEach(element => {
+};
 
-                    element.textContent =
-                        lang === 'ar'
-                            ? element.dataset.ar
-                            : element.dataset.en;
-                });
+function toggleLanguage(){
 
-            localStorage.setItem(
-                'preferredLanguage',
-                lang
-            );
-        }
+    currentLang =
+        currentLang === "en"
+        ? "ar"
+        : "en";
 
-        const savedLanguage =
-            localStorage.getItem(
-                'preferredLanguage'
-            );
+    applyLanguage();
+}
 
-        if (savedLanguage) {
-            setLanguage(savedLanguage);
-        }
+function applyLanguage(){
 
-        class TextScramble {
+    const t = translations[currentLang];
 
-            constructor(el) {
+    document.documentElement.lang = currentLang;
 
-                this.el = el;
+    document.documentElement.dir =
+        currentLang === "ar"
+        ? "rtl"
+        : "ltr";
 
-                this.chars =
-                    '!<>-_\\/[]{}—=+*^?#________';
+    document.getElementById("lang-toggle").innerText =
+        t.button;
 
-                this.update =
-                    this.update.bind(this);
+    document.getElementById("title-text").innerText =
+        t.title;
 
-                this.frameRequest = null;
-                this.frame = 0;
-            }
+    document.getElementById("age-label").innerText =
+        t.age;
 
-            setText(newText) {
+    document.getElementById("projects-label").innerText =
+        t.projects;
 
-                const oldText =
-                    this.el.innerText;
+    document.getElementById("skills-title").innerText =
+        t.skills;
 
-                const length =
-                    Math.max(
-                        oldText.length,
-                        newText.length
-                    );
+    document.getElementById("physics-help").innerText =
+        t.help;
 
-                const promise =
-                    new Promise(resolve => {
-                        this.resolve = resolve;
-                    });
+    document.getElementById("contact-title").innerText =
+        t.contact;
 
-                this.queue = [];
+    document.getElementById("close-btn").innerText =
+        t.close;
 
-                for (
-                    let i = 0;
-                    i < length;
-                    i++
-                ) {
+    document.getElementById("email-btn").innerHTML =
+        `<i class="fa-solid fa-envelope"></i> ${t.email}`;
 
-                    const from =
-                        oldText[i] || '';
+    document.getElementById("whatsapp-btn").innerHTML =
+        `<i class="fa-brands fa-whatsapp"></i> ${t.whatsapp}`;
 
-                    const to =
-                        newText[i] || '';
+    fx.setText(t.name);
 
-                    const start =
-                        Math.floor(
-                            Math.random() * 40
-                        );
+    localStorage.setItem(
+        "preferredLanguage",
+        currentLang
+    );
+}
 
-                    const end =
-                        start +
-                        Math.floor(
-                            Math.random() * 40
-                        );
-
-                    this.queue.push({
-                        from,
-                        to,
-                        start,
-                        end,
-                        char: ''
-                    });
-                }
-
-                if (this.frameRequest) {
-                    cancelAnimationFrame(
-                        this.frameRequest
-                    );
-                }
-
-                this.frame = 0;
-                this.update();
-
-                return promise;
-            }
-
-            update() {
-
-                let output = '';
-                let complete = 0;
-
-                for (
-                    let i = 0;
-                    i < this.queue.length;
-                    i++
-                ) {
-
-                    const item =
-                        this.queue[i];
-
-                    if (
-                        this.frame >=
-                        item.end
-                    ) {
-
-                        complete++;
-                        output += item.to;
-
-                    } else if (
-                        this.frame >=
-                        item.start
-                    ) {
-
-                        if (
-                            !item.char ||
-                            Math.random() < 0.28
-                        ) {
-
-                            item.char =
-                                this.randomChar();
-                        }
-
-                        output +=
-                            `<span style="color:var(--accent-neon);">${item.char}</span>`;
-
-                    } else {
-
-                        output += item.from;
-                    }
-                }
-
-                this.el.innerHTML =
-                    output;
-
-                if (
-                    complete ===
-                    this.queue.length
-                ) {
-
-                    this.resolve();
-
-                } else {
-
-                    this.frameRequest =
-                        requestAnimationFrame(
-                            this.update
-                        );
-
-                    this.frame++;
-                }
-            }
-
-            randomChar() {
-
-                return this.chars[
-                    Math.floor(
-                        Math.random() *
-                        this.chars.length
-                    )
-                ];
-            }
-        }
-
-        const scrambleEl =
-            document.getElementById(
-                'scramble-text'
-            );
-
-        const fx =
-            new TextScramble(
-                scrambleEl
-            );
-
-        fx.setText(
-            'mostafa mansour'
-        );
-
-        const container =
-            document.getElementById(
-                'physics-container'
-            );
-
-        const {
-            Engine,
-            Render,
-            Runner,
-            World,
-            Bodies,
-            Mouse,
-            MouseConstraint,
-            Events
-        } = Matter;
-
-        const engine =
-            Engine.create();
-
-        let render = null;
-        let runner = null;
-        let tagBodies = [];
-
-        const tags = [
-            'C++',
-            'C#',
-            'Python',
-            'JavaScript',
-            'HTML / CSS',
-            'AI',
-            'Cybersecurity',
-            'Arduino',
-            'IoT',
-            'SQL'
-        ];
-
-        function createPhysicsWorld() {
-
-            const width =
-                container.clientWidth;
-
-            const height =
-                container.clientHeight;
-
-            if (render) {
-
-                Render.stop(render);
-
-                if (render.canvas) {
-                    render.canvas.remove();
-                }
-            }
-
-            if (runner) {
-                Runner.stop(runner);
-            }
-
-            World.clear(
-                engine.world,
-                false
+/* =========================
+   TEXT SCRAMBLE
+========================= */
+
+class TextScramble{
+
+    constructor(el){
+
+        this.el = el;
+
+        this.chars =
+            "!<>-_\\/[]{}—=+*^?#";
+
+        this.update =
+            this.update.bind(this);
+
+        this.frameRequest = null;
+    }
+
+    setText(text){
+
+        const oldText =
+            this.el.innerText || "";
+
+        const length =
+            Math.max(
+                oldText.length,
+                text.length
             );
 
-            tagBodies = [];
+        this.queue = [];
 
-            render =
-                Render.create({
+        for(let i=0;i<length;i++){
 
-                    element: container,
-                    engine: engine,
+            const from =
+                oldText[i] || "";
 
-                    options: {
-                        width,
-                        height,
-                        wireframes: false,
-                        background: 'transparent',
-                        pixelRatio:
-                            window.devicePixelRatio || 1
-                    }
-                });
+            const to =
+                text[i] || "";
 
-            const floor =
-                Bodies.rectangle(
-                    width / 2,
-                    height + 25,
-                    width * 2,
-                    50,
-                    {
-                        isStatic: true,
-                        render: {
-                            visible: false
-                        }
-                    }
-                );
-
-            const leftWall =
-                Bodies.rectangle(
-                    -25,
-                    height / 2,
-                    50,
-                    height * 2,
-                    {
-                        isStatic: true,
-                        render: {
-                            visible: false
-                        }
-                    }
-                );
-
-            const rightWall =
-                Bodies.rectangle(
-                    width + 25,
-                    height / 2,
-                    50,
-                    height * 2,
-                    {
-                        isStatic: true,
-                        render: {
-                            visible: false
-                        }
-                    }
-                );
-
-            World.add(
-                engine.world,
-                [
-                    floor,
-                    leftWall,
-                    rightWall
-                ]
-            );
-
-            tags.forEach(text => {
-
-                const x =
-                    Math.random() *
-                    Math.max(
-                        width - 200,
-                        100
-                    ) + 50;
-
-                const y =
-                    Math.random() *
-                    -300 - 50;
-
-                const body =
-                    Bodies.rectangle(
-                        x,
-                        y,
-                        140,
-                        45,
-                        {
-                            chamfer: {
-                                radius: 20
-                            },
-
-                            restitution: 0.7,
-                            friction: 0.2,
-
-                            label: text,
-
-                            render: {
-                                fillStyle:
-                                    '#11141b',
-
-                                strokeStyle:
-                                    '#00ff66',
-
-                                lineWidth: 2
-                            }
-                        }
-                    );
-
-                tagBodies.push(body);
-
-                World.add(
-                    engine.world,
-                    body
-                );
+            this.queue.push({
+                from,
+                to,
+                start:
+                    Math.floor(Math.random()*25),
+                end:
+                    20 +
+                    Math.floor(Math.random()*30)
             });
 
-            const mouse =
-                Mouse.create(
-                    render.canvas
-                );
-
-            const mouseConstraint =
-                MouseConstraint.create(
-                    engine,
-                    {
-                        mouse,
-
-                        constraint: {
-                            stiffness: 0.2,
-
-                            render: {
-                                visible: false
-                            }
-                        }
-                    }
-                );
-
-            World.add(
-                engine.world,
-                mouseConstraint
-            );
-
-            Events.on(
-                render,
-                'afterRender',
-                () => {
-
-                    const context =
-                        render.context;
-
-                    context.font =
-                        '14px "Space Grotesk"';
-
-                    context.fillStyle =
-                        '#ffffff';
-
-                    context.textAlign =
-                        'center';
-
-                    context.textBaseline =
-                        'middle';
-
-                    tagBodies.forEach(
-                        body => {
-
-                            const {
-                                x,
-                                y
-                            } =
-                                body.position;
-
-                            context.save();
-
-                            context.translate(
-                                x,
-                                y
-                            );
-
-                            context.rotate(
-                                body.angle
-                            );
-
-                            context.fillText(
-                                body.label,
-                                0,
-                                0
-                            );
-
-                            context.restore();
-                        }
-                    );
-                }
-            );
-
-            runner =
-                Runner.create();
-
-            Runner.run(
-                runner,
-                engine
-            );
-
-            Render.run(
-                render
-            );
         }
 
-        createPhysicsWorld();
+        cancelAnimationFrame(
+            this.frameRequest
+        );
 
-        let resizeTimer;
+        this.frame = 0;
 
-        window.addEventListener(
-            'resize',
-            () => {
+        this.update();
+    }
 
-                clearTimeout(
-                    resizeTimer
-                );
+    update(){
 
-                resizeTimer =
-                    setTimeout(
-                        createPhysicsWorld,
-                        250
-                    );
+        let output = "";
+
+        let complete = 0;
+
+        for(const item of this.queue){
+
+            if(this.frame >= item.end){
+
+                complete++;
+
+                output += item.to;
+
+            }else if(this.frame >= item.start){
+
+                if(
+                    !item.char ||
+                    Math.random()<.25
+                ){
+
+                    item.char =
+                        this.randomChar();
+
+                }
+
+                output +=
+                    `<span style="color:var(--green)">${item.char}</span>`;
+
+            }else{
+
+                output += item.from;
+
+            }
+
+        }
+
+        this.el.innerHTML = output;
+
+        if(
+            complete ===
+            this.queue.length
+        ){
+            return;
+        }
+
+        this.frameRequest =
+            requestAnimationFrame(
+                this.update
+            );
+
+        this.frame++;
+    }
+
+    randomChar(){
+
+        return this.chars[
+            Math.floor(
+                Math.random() *
+                this.chars.length
+            )
+        ];
+
+    }
+
+}
+
+const fx =
+    new TextScramble(
+        document.getElementById(
+            "scramble-text"
+        )
+    );
+
+/* =========================
+   BACKGROUND PARTICLES
+========================= */
+
+const bgCanvas =
+    document.getElementById(
+        "particles-bg"
+    );
+
+const bgCtx =
+    bgCanvas.getContext("2d");
+
+let bgParticles = [];
+
+function resizeBackground(){
+
+    bgCanvas.width =
+        window.innerWidth;
+
+    bgCanvas.height =
+        window.innerHeight;
+
+    bgParticles =
+        Array.from(
+            {
+                length:
+                    window.innerWidth < 700
+                    ? 35
+                    : 65
+            },
+            createBgParticle
+        );
+}
+
+function createBgParticle(){
+
+    return{
+
+        x:
+            Math.random() *
+            window.innerWidth,
+
+        y:
+            Math.random() *
+            window.innerHeight,
+
+        vx:
+            (Math.random()-.5)*.25,
+
+        vy:
+            (Math.random()-.5)*.25,
+
+        size:
+            Math.random()*1.8+.5
+    };
+}
+
+function animateBackground(){
+
+    bgCtx.clearRect(
+        0,
+        0,
+        bgCanvas.width,
+        bgCanvas.height
+    );
+
+    bgParticles.forEach(p=>{
+
+        p.x += p.vx;
+
+        p.y += p.vy;
+
+        if(p.x<0)
+            p.x =
+                bgCanvas.width;
+
+        if(p.x>bgCanvas.width)
+            p.x = 0;
+
+        if(p.y<0)
+            p.y =
+                bgCanvas.height;
+
+        if(p.y>bgCanvas.height)
+            p.y = 0;
+
+        bgCtx.beginPath();
+
+        bgCtx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+        bgCtx.fillStyle =
+            "rgba(0,255,102,.35)";
+
+        bgCtx.fill();
+
+    });
+
+    requestAnimationFrame(
+        animateBackground
+    );
+}
+
+resizeBackground();
+
+animateBackground();
+
+window.addEventListener(
+    "resize",
+    resizeBackground
+);
+
+/* =========================
+   MOUSE BACKGROUND
+========================= */
+
+document.addEventListener(
+    "pointermove",
+    e=>{
+
+        document.documentElement.style.setProperty(
+            "--mx",
+            e.clientX+"px"
+        );
+
+        document.documentElement.style.setProperty(
+            "--my",
+            e.clientY+"px"
+        );
+
+    },
+    {passive:true}
+);
+
+/* =========================
+   THREE JS ROBOT
+========================= */
+
+const canvas =
+    document.getElementById(
+        "robot-canvas"
+    );
+
+const robotBox =
+    canvas.parentElement;
+
+const scene =
+    new THREE.Scene();
+
+const camera =
+    new THREE.PerspectiveCamera(
+        45,
+        robotBox.clientWidth /
+        robotBox.clientHeight,
+        .1,
+        1000
+    );
+
+const renderer =
+    new THREE.WebGLRenderer({
+        canvas,
+        alpha:true,
+        antialias:true
+    });
+
+renderer.setPixelRatio(
+    Math.min(
+        window.devicePixelRatio || 1,
+        2
+    )
+);
+
+function resizeRobot(){
+
+    const w =
+        robotBox.clientWidth;
+
+    const h =
+        robotBox.clientHeight;
+
+    if(!w || !h)
+        return;
+
+    camera.aspect =
+        w/h;
+
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(
+        w,
+        h,
+        false
+    );
+}
+
+resizeRobot();
+
+const robot =
+    new THREE.Group();
+
+const head =
+    new THREE.Mesh(
+        new THREE.BoxGeometry(
+            2,
+            1.4,
+            1.4
+        ),
+        new THREE.MeshBasicMaterial({
+            color:0x00ff66,
+            wireframe:true
+        })
+    );
+
+robot.add(head);
+
+const eyeMaterial =
+    new THREE.MeshBasicMaterial({
+        color:0x00e5ff
+    });
+
+const eyeGeometry =
+    new THREE.SphereGeometry(
+        .2,
+        16,
+        16
+    );
+
+const eye1 =
+    new THREE.Mesh(
+        eyeGeometry,
+        eyeMaterial
+    );
+
+eye1.position.set(
+    -.5,
+    .1,
+    .7
+);
+
+const eye2 =
+    eye1.clone();
+
+eye2.position.set(
+    .5,
+    .1,
+    .7
+);
+
+robot.add(
+    eye1,
+    eye2
+);
+
+scene.add(robot);
+
+camera.position.z =
+    5.5;
+
+let targetX = 0;
+
+let targetY = 0;
+
+function moveRobot(x,y){
+
+    targetX =
+        (x/window.innerWidth-.5)*2;
+
+    targetY =
+        (y/window.innerHeight-.5)*2;
+}
+
+document.addEventListener(
+    "mousemove",
+    e=>
+        moveRobot(
+            e.clientX,
+            e.clientY
+        ),
+    {passive:true}
+);
+
+canvas.addEventListener(
+    "touchmove",
+    e=>{
+
+        if(e.touches.length){
+
+            moveRobot(
+                e.touches[0].clientX,
+                e.touches[0].clientY
+            );
+
+        }
+
+    },
+    {passive:true}
+);
+
+canvas.addEventListener(
+    "pointerdown",
+    e=>{
+
+        createParticles(
+            e.clientX,
+            e.clientY
+        );
+
+        createRipple(
+            e.clientX,
+            e.clientY
+        );
+
+        robot.scale.set(
+            1.15,
+            1.15,
+            1.15
+        );
+
+        setTimeout(
+            ()=>
+                robot.scale.set(
+                    1,
+                    1,
+                    1
+                ),
+            180
+        );
+
+    }
+);
+
+function robotAnimation(){
+
+    requestAnimationFrame(
+        robotAnimation
+    );
+
+    robot.rotation.y +=
+        (
+            targetX*.8 -
+            robot.rotation.y
+        )*.05;
+
+    robot.rotation.x +=
+        (
+            targetY*.8 -
+            robot.rotation.x
+        )*.05;
+
+    robot.rotation.z =
+        Math.sin(
+            Date.now()*.001
+        )*.04;
+
+    robot.position.y =
+        Math.sin(
+            Date.now()*.002
+        )*.05;
+
+    renderer.render(
+        scene,
+        camera
+    );
+}
+
+robotAnimation();
+
+window.addEventListener(
+    "resize",
+    resizeRobot
+);
+
+/* =========================
+   MATTER JS SKILLS
+========================= */
+
+const physics =
+    document.getElementById(
+        "physics-container"
+    );
+
+const {
+    Engine,
+    Render,
+    Runner,
+    World,
+    Bodies,
+    Mouse,
+    MouseConstraint,
+    Events,
+    Query
+} = Matter;
+
+const engine =
+    Engine.create();
+
+const render =
+    Render.create({
+
+        element:physics,
+
+        engine,
+
+        options:{
+            width:
+                physics.clientWidth,
+
+            height:
+                physics.clientHeight,
+
+            wireframes:false,
+
+            background:"transparent",
+
+            pixelRatio:
+                Math.min(
+                    window.devicePixelRatio || 1,
+                    2
+                )
+        }
+
+    });
+
+let W =
+    physics.clientWidth;
+
+let H =
+    physics.clientHeight;
+
+const skillBodies = [];
+
+let walls = [];
+
+function createWalls(){
+
+    W =
+        physics.clientWidth;
+
+    H =
+        physics.clientHeight;
+
+    if(walls.length)
+        World.remove(
+            engine.world,
+            walls
+        );
+
+    const floor =
+        Bodies.rectangle(
+            W/2,
+            H+25,
+            W*2,
+            50,
+            {
+                isStatic:true
             }
         );
 
-    </script>
+    const left =
+        Bodies.rectangle(
+            -25,
+            H/2,
+            50,
+            H*2,
+            {
+                isStatic:true
+            }
+        );
+
+    const right =
+        Bodies.rectangle(
+            W+25,
+            H/2,
+            50,
+            H*2,
+            {
+                isStatic:true
+            }
+        );
+
+    walls = [
+        floor,
+        left,
+        right
+    ];
+
+    World.add(
+        engine.world,
+        walls
+    );
+}
+
+createWalls();
+
+const skills = [
+
+    "Python",
+    "C++",
+    "C#",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Frontend",
+    "Backend",
+    "Full Stack",
+    "SQL",
+    "OOP",
+    "Data Structures",
+    "Algorithms",
+    "Machine Learning",
+    "Deep Learning",
+    "Computer Vision",
+    "PyTorch",
+    "Cybersecurity",
+    "Networking",
+    "IoT",
+    "Arduino",
+    "Embedded C++",
+    "Raspberry Pi"
+
+];
+
+const skillInfo = {
+
+    "Python":{
+        icon:"fa-brands fa-python",
+        en:"Python Programming & AI Development",
+        ar:"برمجة بايثون وتطبيقات الذكاء الاصطناعي"
+    },
+
+    "C++":{
+        icon:"fa-solid fa-code",
+        en:"C++ High Performance Programming",
+        ar:"برمجة C++ عالية الأداء"
+    },
+
+    "C#":{
+        icon:"fa-solid fa-code",
+        en:"C# & .NET Development",
+        ar:"تطوير تطبيقات بـ C# و .NET"
+    },
+
+    "HTML":{
+        icon:"fa-brands fa-html5",
+        en:"Semantic Web Structure & Elements",
+        ar:"هيكلة صفحات الويب"
+    },
+
+    "CSS":{
+        icon:"fa-brands fa-css3-alt",
+        en:"Modern Web Styling & Responsive Layouts",
+        ar:"تصميم وتنسيق المواقع"
+    },
+
+    "JavaScript":{
+        icon:"fa-brands fa-js",
+        en:"Interactive Frontend & Dynamic Logic",
+        ar:"تطوير المواقع والتفاعل"
+    },
+
+    "Frontend":{
+        icon:"fa-solid fa-display",
+        en:"User Interface & Client-side Development",
+        ar:"تطوير واجهات المستخدم"
+    },
+
+    "Backend":{
+        icon:"fa-solid fa-server",
+        en:"Server Logic, APIs & Databases",
+        ar:"الخوادم وواجهات API وقواعد البيانات"
+    },
+
+    "Full Stack":{
+        icon:"fa-solid fa-layer-group",
+        en:"End-to-End Web Development",
+        ar:"تطوير الويب المتكامل"
+    },
+
+    "SQL":{
+        icon:"fa-solid fa-database",
+        en:"Relational Database Management",
+        ar:"إدارة واستعلام قواعد البيانات"
+    },
+
+    "OOP":{
+        icon:"fa-solid fa-cubes",
+        en:"Object Oriented Programming",
+        ar:"البرمجة كائنية التوجه"
+    },
+
+    "Data Structures":{
+        icon:"fa-solid fa-diagram-project",
+        en:"Efficient Data Organization",
+        ar:"هياكل البيانات وتنظيمها"
+    },
+
+    "Algorithms":{
+        icon:"fa-solid fa-code-branch",
+        en:"Problem Solving & Algorithmic Efficiency",
+        ar:"الخوارزميات وحل المشكلات"
+    },
+
+    "Machine Learning":{
+        icon:"fa-solid fa-brain",
+        en:"Predictive Models & ML Algorithms",
+        ar:"تعلم الآلة والنمذجة التنبؤية"
+    },
+
+    "Deep Learning":{
+        icon:"fa-solid fa-network-wired",
+        en:"Neural Networks & Deep Architectures",
+        ar:"الشبكات العصبية والتعلم العميق"
+    },
+
+    "Computer Vision":{
+        icon:"fa-solid fa-eye",
+        en:"Image Processing & Visual AI",
+        ar:"الرؤية الحاسوبية ومعالجة الصور"
+    },
+
+    "PyTorch":{
+        icon:"fa-solid fa-fire",
+        en:"Deep Learning Framework",
+        ar:"إطار عمل PyTorch للذكاء الاصطناعي"
+    },
+
+    "Cybersecurity":{
+        icon:"fa-solid fa-shield-halved",
+        en:"Cybersecurity Fundamentals",
+        ar:"أساسيات الأمن السيبراني"
+    },
+
+    "Networking":{
+        icon:"fa-solid fa-network-wired",
+        en:"Networks & Communication Protocols",
+        ar:"شبكات الحاسب والبروتوكولات"
+    },
+
+    "IoT":{
+        icon:"fa-solid fa-wifi",
+        en:"Internet of Things",
+        ar:"إنترنت الأشياء"
+    },
+
+    "Arduino":{
+        icon:"fa-solid fa-microchip",
+        en:"Microcontrollers & Electronics",
+        ar:"المتحكمات الدقيقة والإلكترونيات"
+    },
+
+    "Embedded C++":{
+        icon:"fa-solid fa-microchip",
+        en:"Embedded Systems Programming",
+        ar:"برمجة الأنظمة المدمجة"
+    },
+
+    "Raspberry Pi":{
+        icon:"fa-brands fa-raspberry-pi",
+        en:"Single Board Computer Projects",
+        ar:"مشاريع Raspberry Pi"
+    }
+
+};
+
+skills.forEach(
+    (skill,index)=>{
+
+        const body =
+            Bodies.rectangle(
+
+                Math.random() *
+                Math.max(
+                    W-180,
+                    120
+                ) + 60,
+
+                -Math.random()*800,
+
+                155,
+
+                44,
+
+                {
+
+                    chamfer:{
+                        radius:20
+                    },
+
+                    restitution:
+                        .55 +
+                        Math.random()*.25,
+
+                    friction:.15,
+
+                    frictionAir:.015,
+
+                    label:skill,
+
+                    render:{
+
+                        fillStyle:
+                            "#11141b",
+
+                        strokeStyle:
+                            "#00ff66",
+
+                        lineWidth:2
+                    }
+
+                }
+
+            );
+
+        body.skillIndex =
+            index;
+
+        skillBodies.push(
+            body
+        );
+
+        World.add(
+            engine.world,
+            body
+        );
+
+    }
+);
+
+const mouse =
+    Mouse.create(
+        render.canvas
+    );
+
+const mouseConstraint =
+    MouseConstraint.create(
+        engine,
+        {
+            mouse,
+
+            constraint:{
+                stiffness:.18,
+
+                render:{
+                    visible:false
+                }
+            }
+        }
+    );
+
+World.add(
+    engine.world,
+    mouseConstraint
+);
+
+function updateTouch(touch){
+
+    const rect =
+        render.canvas
+        .getBoundingClientRect();
+
+    mouse.position.x =
+        (
+            touch.clientX -
+            rect.left
+        ) *
+        (
+            render.options.width /
+            rect.width
+        );
+
+    mouse.position.y =
+        (
+            touch.clientY -
+            rect.top
+        ) *
+        (
+            render.options.height /
+            rect.height
+        );
+}
+
+render.canvas.addEventListener(
+    "touchstart",
+    e=>{
+
+        if(e.touches.length){
+
+            e.preventDefault();
+
+            updateTouch(
+                e.touches[0]
+            );
+
+            mouse.button = 0;
+        }
+
+    },
+    {passive:false}
+);
+
+render.canvas.addEventListener(
+    "touchmove",
+    e=>{
+
+        if(e.touches.length){
+
+            e.preventDefault();
+
+            updateTouch(
+                e.touches[0]
+            );
+
+            mouse.button = 0;
+        }
+
+    },
+    {passive:false}
+);
+
+render.canvas.addEventListener(
+    "touchend",
+    ()=>{
+        mouse.button = -1;
+    },
+    {passive:true}
+);
+
+/* =========================
+   POPUP
+========================= */
+
+function showSkill(
+    skill,
+    x,
+    y
+){
+
+    const popup =
+        document.getElementById(
+            "skill-popup"
+        );
+
+    const overlay =
+        document.getElementById(
+            "popup-overlay"
+        );
+
+    const title =
+        document.getElementById(
+            "popup-title"
+        );
+
+    const description =
+        document.getElementById(
+            "popup-description"
+        );
+
+    const icon =
+        document.getElementById(
+            "skill-icon"
+        );
+
+    const info =
+        skillInfo[skill];
+
+    icon.className =
+        info
+        ? info.icon
+        : "fa-solid fa-code";
+
+    title.innerText =
+        skill;
+
+    description.innerText =
+        info
+        ? (
+            currentLang === "ar"
+            ? info.ar
+            : info.en
+        )
+        : "";
+
+    overlay.classList.add(
+        "show"
+    );
+
+    popup.classList.add(
+        "show"
+    );
+
+    createParticles(
+        x,
+        y
+    );
+
+    createRipple(
+        x,
+        y
+    );
+
+    if(navigator.vibrate)
+        navigator.vibrate(
+            [20,30,20]
+        );
+}
+
+function closeSkillPopup(){
+
+    document
+        .getElementById(
+            "skill-popup"
+        )
+        .classList.remove(
+            "show"
+        );
+
+    document
+        .getElementById(
+            "popup-overlay"
+        )
+        .classList.remove(
+            "show"
+        );
+}
+
+/* =========================
+   CLICK DETECTION
+========================= */
+
+let startX = 0;
+
+let startY = 0;
+
+render.canvas.addEventListener(
+    "pointerdown",
+    e=>{
+
+        startX =
+            e.clientX;
+
+        startY =
+            e.clientY;
+    }
+);
+
+render.canvas.addEventListener(
+    "pointerup",
+    e=>{
+
+        const moveDist =
+            Math.hypot(
+                e.clientX-startX,
+                e.clientY-startY
+            );
+
+        if(moveDist > 10)
+            return;
+
+        const rect =
+            render.canvas
+            .getBoundingClientRect();
+
+        const mousePoint = {
+
+            x:
+                (
+                    e.clientX -
+                    rect.left
+                ) *
+                (
+                    render.options.width /
+                    rect.width
+                ),
+
+            y:
+                (
+                    e.clientY -
+                    rect.top
+                ) *
+                (
+                    render.options.height /
+                    rect.height
+                )
+        };
+
+        const clickedBodies =
+            Query.point(
+                skillBodies,
+                mousePoint
+            );
+
+        if(clickedBodies.length > 0){
+
+            showSkill(
+                clickedBodies[0].label,
+                e.clientX,
+                e.clientY
+            );
+
+        }
+
+    }
+);
+
+/* =========================
+   DRAW SKILLS
+========================= */
+
+Events.on(
+    render,
+    "afterRender",
+    ()=>{
+
+        const ctx =
+            render.context;
+
+        skillBodies.forEach(
+            body=>{
+
+                const {
+                    x,
+                    y
+                } =
+                    body.position;
+
+                ctx.save();
+
+                ctx.translate(
+                    x,
+                    y
+                );
+
+                ctx.rotate(
+                    body.angle
+                );
+
+                const speed =
+                    Math.abs(
+                        body.velocity.x
+                    ) +
+                    Math.abs(
+                        body.velocity.y
+                    );
+
+                ctx.shadowColor =
+                    "#00ff66";
+
+                ctx.shadowBlur =
+                    speed > 2
+                    ? 22
+                    : 5;
+
+                ctx.font =
+                    "13px Space Grotesk";
+
+                ctx.fillStyle =
+                    "#ffffff";
+
+                ctx.textAlign =
+                    "center";
+
+                ctx.textBaseline =
+                    "middle";
+
+                ctx.fillText(
+                    body.label,
+                    0,
+                    0
+                );
+
+                ctx.restore();
+
+            }
+        );
+
+    }
+);
+
+/* =========================
+   EFFECTS
+========================= */
+
+function createParticles(
+    x,
+    y
+){
+
+    for(
+        let i=0;
+        i<18;
+        i++
+    ){
+
+        const p =
+            document.createElement(
+                "div"
+            );
+
+        p.className =
+            "particle";
+
+        p.style.left =
+            x+"px";
+
+        p.style.top =
+            y+"px";
+
+        p.style.setProperty(
+            "--dx",
+            (
+                (Math.random()-.5)*220
+            )+"px"
+        );
+
+        p.style.setProperty(
+            "--dy",
+            (
+                (Math.random()-.5)*220
+            )+"px"
+        );
+
+        document.body.appendChild(
+            p
+        );
+
+        setTimeout(
+            ()=>p.remove(),
+            800
+        );
+    }
+}
+
+function createRipple(
+    x,
+    y
+){
+
+    const ripple =
+        document.createElement(
+            "div"
+        );
+
+    ripple.className =
+        "ripple";
+
+    ripple.style.left =
+        x+"px";
+
+    ripple.style.top =
+        y+"px";
+
+    document.body.appendChild(
+        ripple
+    );
+
+    setTimeout(
+        ()=>ripple.remove(),
+        700
+    );
+}
+
+function cardEffect(
+    element
+){
+
+    element.classList.add(
+        "active"
+    );
+
+    const rect =
+        element.getBoundingClientRect();
+
+    createParticles(
+        rect.left +
+        rect.width/2,
+
+        rect.top +
+        rect.height/2
+    );
+
+    setTimeout(
+        ()=>{
+            element.classList.remove(
+                "active"
+            );
+        },
+        500
+    );
+}
+
+function profileEffect(e){
+
+    const profile =
+        document.getElementById(
+            "profile-card"
+        );
+
+    profile.classList.add(
+        "active"
+    );
+
+    createParticles(
+        e.clientX,
+        e.clientY
+    );
+
+    createRipple(
+        e.clientX,
+        e.clientY
+    );
+
+    setTimeout(
+        ()=>{
+            profile.classList.remove(
+                "active"
+            );
+        },
+        700
+    );
+}
+
+/* =========================
+   RESIZE PHYSICS
+========================= */
+
+function resizePhysics(){
+
+    const newWidth =
+        physics.clientWidth;
+
+    const newHeight =
+        physics.clientHeight;
+
+    if(
+        !newWidth ||
+        !newHeight
+    )
+        return;
+
+    W =
+        newWidth;
+
+    H =
+        newHeight;
+
+    render.options.width =
+        W;
+
+    render.options.height =
+        H;
+
+    render.canvas.width =
+        W;
+
+    render.canvas.height =
+        H;
+
+    createWalls();
+}
+
+window.addEventListener(
+    "resize",
+    resizePhysics
+);
+
+/* =========================
+   RUN
+========================= */
+
+const runner =
+    Runner.create();
+
+Runner.run(
+    runner,
+    engine
+);
+
+Render.run(
+    render
+);
+
+document.addEventListener(
+    "keydown",
+    e=>{
+
+        if(e.key === "Escape")
+            closeSkillPopup();
+
+    }
+);
+
+/* START IN ARABIC */
+applyLanguage();
+
+</script>
 
 </body>
-</html>
+    </html>
