@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mostafa12345670.github.io/mostafa-portfolio/sitemap.xml
